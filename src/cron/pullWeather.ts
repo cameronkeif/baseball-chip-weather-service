@@ -32,7 +32,8 @@ const pullWeather = async () => {
           const weather: Weather = {
             timestamp: forecastItem.dt,
             temperature: forecastItem.main.temp,
-            main: forecastItem.weather[0].main,
+            main: forecastItem.weather[0].main, // forecastItem.weather is an array which always contains one element.
+            description: forecastItem.weather[0].description,
             wind: {
               speed: forecastItem.wind.speed,
               degree: forecastItem.wind.deg,
