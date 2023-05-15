@@ -8,3 +8,5 @@ export type Weather = {
     degree: number;
   };
 };
+
+export default Weather;

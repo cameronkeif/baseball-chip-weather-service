@@ -2,7 +2,7 @@ import mlbStadiums from '../data/mlbStadiums';
 import redisClient from '../clients/redisClient';
 import { getWeather } from '../clients/OpenWeatherApiClient';
 import OpenWeatherForecastItem from '../types/OpenWeatherForecastItem';
-import { Weather } from 'types/Weather';
+import Weather from 'types/Weather';
 
 const pullWeather = async () => {
   const results = await Promise.all(

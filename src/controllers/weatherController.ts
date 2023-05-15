@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import mlbStadiums from '../data/mlbStadiums';
 import redisClient from '../clients/redisClient';
+import Weather from '../types/Weather';
 
 export const getWeather = async (
   req: Request,
@@ -19,7 +20,15 @@ export const getWeather = async (
     })
   );
 
-  return res.json(results);
+  // TODO can this be combined with the above?
+  const response = results.reduce((result: Map<string, Weather>, item) => {
+    if (item?.stadiumName) {
+      result.set(item.stadiumName, item?.weather);
+    }
+    return result;
+  }, new Map<string, Weather>());
+
+  return res.json(Object.fromEntries(response));
 };
 
 export default {
