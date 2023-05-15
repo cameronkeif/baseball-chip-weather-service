@@ -9,7 +9,8 @@ export const getWeather = async (
   const results = await Promise.all(
     Array.from(mlbStadiums.keys()).map(async (stadiumName) => {
       const stadiumInfo = mlbStadiums.get(stadiumName);
-      if (!stadiumInfo) { // Should never happen since the map is hard-coded.
+      if (!stadiumInfo) {
+        // Should never happen since the map is hard-coded.
         return Promise.resolve(null);
       }
 

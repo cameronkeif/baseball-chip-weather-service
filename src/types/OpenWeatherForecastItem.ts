@@ -3,10 +3,12 @@ export type OpenWeatherForecastItem = {
   main: {
     temp: number;
   };
-  weather: [{
-    main: string;
-    description: string;
-  }];
+  weather: [
+    {
+      main: string;
+      description: string;
+    }
+  ];
   wind: {
     speed: number;
     deg: number;

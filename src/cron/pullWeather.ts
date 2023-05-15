@@ -9,7 +9,9 @@ const pullWeather = async () => {
     Array.from(mlbStadiums.keys()).map(async (stadiumName) => {
       const stadiumInfo = mlbStadiums.get(stadiumName);
       if (!stadiumInfo) {
-        console.log(`Unable to find ${stadiumName} in mlb stadium map - something is wrong!`)
+        console.log(
+          `Unable to find ${stadiumName} in mlb stadium map - something is wrong!`
+        );
         return null;
       }
 
@@ -28,7 +30,8 @@ const pullWeather = async () => {
 
   results.forEach(async (result) => {
     if (result) {
-      const data: Weather[] = result.weather.list.map((forecastItem: OpenWeatherForecastItem) => {
+      const data: Weather[] = result.weather.list.map(
+        (forecastItem: OpenWeatherForecastItem) => {
           const weather: Weather = {
             timestamp: forecastItem.dt,
             temperature: forecastItem.main.temp,
